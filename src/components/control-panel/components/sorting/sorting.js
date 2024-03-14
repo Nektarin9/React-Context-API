@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContextSorting } from '../../../../context';
 import { Button } from '../../../button/button';
 import styles from './sorting.module.css';
 
-export const Sorting = ({ onSorting }) => {
+export const Sorting = () => {
+	const onSorting = useContext(AppContextSorting)
+
 	const [isEnabled, setIsEnabled] = useState(false);
 
 	const onChange = ({ target }) => {

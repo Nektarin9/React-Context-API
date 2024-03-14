@@ -1,12 +1,14 @@
 import { Button } from '../button/button';
 import { Search, Sorting } from './components';
 import styles from './control-panel.module.css';
-
-export const ControlPanel = ({ onTodoAdd, onSearch, onSorting }) => {
+import { AppContextOnTodoAdd } from '../../context';
+import { useContext } from 'react';
+export const ControlPanel = () => {
+	const onTodoAdd = useContext(AppContextOnTodoAdd)
 	return (
 		<div className={styles.controlPanel}>
-			<Search onSearch={onSearch} />
-			<Sorting onSorting={onSorting} />
+			<Search />
+			<Sorting />
 			<Button onClick={onTodoAdd}>✚</Button>
 		</div>
 	);
