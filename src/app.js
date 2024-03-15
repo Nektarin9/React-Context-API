@@ -58,13 +58,18 @@ export const App = () => {
 			setTodos(loadedTodos),
 		);
 	}, [searchPhrase, isAlphabetSorting]);
-
 	return (
 		<AppContextProvider
 			setSearchPhrase={setSearchPhrase}
 			setIsAlphabetSorting={setIsAlphabetSorting}
 			onTodoAdd={onTodoAdd}
-			Todo={{onTodoEdit, onTodoSave, onTodoRemove}}
+			Todo={{
+				onTodoEdit,
+				onTodoSave,
+				onTodoRemove,
+				onTodoTitleChange,
+				onTodoCompletedChange,
+			}}
 		>
 			<div className={styles.app}>
 				<ControlPanel />
@@ -77,14 +82,6 @@ export const App = () => {
 							title={title}
 							completed={completed}
 							isEditing={isEditing}
-
-
-
-							onTitleChange={(newTitle) => onTodoTitleChange(id, newTitle)}
-							onCompletedChange={(newCompleted) =>
-								onTodoCompletedChange(id, newCompleted)
-							}
-							
 						/>
 					))}
 				</div>

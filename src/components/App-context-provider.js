@@ -2,7 +2,7 @@ import {
 	AppContextSearch,
 	AppContextSorting,
 	AppContextOnTodoAdd,
-	AppContextTodo
+	AppContextTodo,
 } from '../context';
 
 export const AppContextProvider = ({
@@ -17,12 +17,10 @@ export const AppContextProvider = ({
 			<AppContextSorting.Provider value={setIsAlphabetSorting}>
 				<AppContextOnTodoAdd.Provider value={onTodoAdd}>
 					<AppContextTodo.Provider value={Todo}>
-					{children}
+						{children}
 					</AppContextTodo.Provider>
-
 				</AppContextOnTodoAdd.Provider>
 			</AppContextSorting.Provider>
 		</AppContextSearch.Provider>
 	);
 };
-
