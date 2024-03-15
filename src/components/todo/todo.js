@@ -1,17 +1,18 @@
 import { Button } from '../button/button';
 import styles from './todo.module.css';
-
-
+import { useContext } from 'react';
+import { AppContextTodo } from '../../context';
 export const Todo = ({
+	id,
 	title,
 	completed,
 	isEditing,
-	onEdit,
 	onTitleChange,
 	onCompletedChange,
-	onSave,
-	onRemove,
+
 }) => {
+	const {onTodoEdit, onTodoSave, onTodoRemove} = useContext(AppContextTodo);
+
 	return (
 		<div className={styles.todo}>
 			<input
@@ -28,14 +29,14 @@ export const Todo = ({
 						onChange={({ target }) => onTitleChange(target.value)}
 					/>
 				) : (
-					<div onClick={onEdit}>{title}</div>
+					<div onClick={() => onTodoEdit(id)}>{title}</div>
 				)}
 			</div>
 			<div>
 				{isEditing ? (
-					<Button onClick={onSave}>✎</Button>
+					<Button onClick={() => onTodoSave(id)}>✎</Button>
 				) : (
-					<Button onClick={onRemove}>✖</Button>
+					<Button onClick={() => onTodoRemove(id)}>✖</Button>
 				)}
 			</div>
 		</div>

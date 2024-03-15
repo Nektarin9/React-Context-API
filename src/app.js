@@ -64,6 +64,7 @@ export const App = () => {
 			setSearchPhrase={setSearchPhrase}
 			setIsAlphabetSorting={setIsAlphabetSorting}
 			onTodoAdd={onTodoAdd}
+			Todo={{onTodoEdit, onTodoSave, onTodoRemove}}
 		>
 			<div className={styles.app}>
 				<ControlPanel />
@@ -76,13 +77,14 @@ export const App = () => {
 							title={title}
 							completed={completed}
 							isEditing={isEditing}
-							onEdit={() => onTodoEdit(id)}
+
+
+
 							onTitleChange={(newTitle) => onTodoTitleChange(id, newTitle)}
 							onCompletedChange={(newCompleted) =>
 								onTodoCompletedChange(id, newCompleted)
 							}
-							onSave={() => onTodoSave(id)}
-							onRemove={() => onTodoRemove(id)}
+							
 						/>
 					))}
 				</div>
